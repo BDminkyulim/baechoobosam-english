@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>슬기로운 초등영어 1800 통문장 외우기 - 1~6단계 전체 문장 학습</title>
+<meta name="description" content="초등 필수 영어 1,800 통문장을 1단계부터 6단계까지 화별로 듣고 따라 말하며 암기하세요. 듣기, 반복재생, 발음 평가, 암기 체크 기능을 한 페이지에서 사용할 수 있습니다.">
+<link rel="canonical" href="./learn.html">
+<meta property="og:title" content="슬기로운 초등영어 1800 통문장 외우기">
+<meta property="og:description" content="초등 필수 영어 1,800 통문장을 단계별로 듣고 따라 말하며 암기하는 학습 페이지입니다.">
+<meta property="og:type" content="website">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4361ee">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<script>
+  (function(){
+    try{
+      const saved = localStorage.getItem('theme');
+      const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    }catch(e){}
+  })();
+</script>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#ffffff; --accent:#4361ee; --accent2:#3a0ca3;
+    --text:#1b1b2f; --sub:#6c757d; --border:#e3e6ee;
+  }
+  :root[data-theme="dark"]{
+    --bg:#14161f; --card:#1f2230; --accent:#6c8cff; --accent2:#9d7bff;
+    --text:#eef0f7; --sub:#a3a8bd; --border:#343750;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg); color:var(--text); transition:background-color .2s, color .2s;
+  }
+  .theme-toggle{
+    position:fixed; top:10px; right:10px; z-index:200;
+    width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.5);
+    background:rgba(0,0,0,.25); color:#fff; font-size:1.1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .top-fixed{
+    position:sticky; top:0; z-index:100; background:var(--bg);
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+  }
+  header{
+    background:var(--accent);
+    color:#fff; padding:24px 16px; text-align:center;
+  }
+  header h1{margin:0 0 6px; font-size:1.4rem;}
+  header p{margin:0; opacity:.9; font-size:.9rem;}
+  .profile-bar{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    margin-top:10px; font-size:.95rem;
+  }
+  .profile-bar .avatar{font-size:1.4rem;}
+  .logout-btn{
+    background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.5); color:#fff;
+    border-radius:14px; padding:3px 10px; font-size:.75rem; cursor:pointer;
+  }
+  .controls{
+    max-width:900px; margin:16px auto 0; padding:0 16px;
+    display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between;
+  }
+  .top-fixed .controls:last-of-type{margin-bottom:16px;}
+  .chapter-select{display:flex; flex-wrap:wrap; gap:6px; max-width:100%;}
+  .chapter-btn{
+    border:1px solid var(--border); background:var(--card); color:var(--text);
+    border-radius:20px; padding:6px 12px; font-size:.85rem; cursor:pointer;
+  }
+  .chapter-btn.active{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .toggle-group{display:flex; gap:8px;}
+  .toggle-btn{
+    border:1px solid var(--accent); background:var(--card); color:var(--accent);
+    border-radius:8px; padding:8px 14px; font-size:.85rem; cursor:pointer; white-space:nowrap;
+  }
+  .toggle-btn.on{background:var(--accent); color:#fff;}
+  main{max-width:900px; margin:0 auto; padding:16px;}
+  .chapter-title{
+    font-size:1.1rem; font-weight:700; margin:24px 0 10px; color:var(--accent2);
+    border-bottom:2px solid var(--accent2); padding-bottom:6px;
+    display:flex; align-items:center; justify-content:space-between; gap:8px;
+  }
+  .chapter-title .title-text{flex:1; min-width:0;}
+  .chapter-repeat-btn{
+    flex:0 0 auto; border:1.5px solid var(--accent); background:var(--card); color:var(--accent);
+    border-radius:20px; padding:6px 12px; font-size:.78rem; font-weight:700; cursor:pointer;
+    white-space:nowrap;
+  }
+  .chapter-repeat-btn.on{background:#c1121f; color:#fff; border-color:#c1121f;}
+  .sentence-card{
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
+    padding:14px 16px; margin-bottom:10px; display:flex; align-items:center; gap:12px;
+  }
+  .sentence-num{
+    flex:0 0 28px; color:var(--sub); font-size:.8rem; text-align:right;
+  }
+  .sentence-body{flex:1; min-width:0;}
+  .en{font-size:1.02rem; font-weight:600;}
+  .ko{font-size:.92rem; color:var(--sub); margin-top:4px; transition:filter .15s, opacity .15s;}
+  .ko.hidden{filter:blur(6px); opacity:.6; cursor:pointer; user-select:none;}
+  .btn-group{display:flex; gap:6px; flex:0 0 auto;}
+  .speak-btn{
+    flex:0 0 auto; border:none; background:var(--accent); color:#fff;
+    width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .speak-btn:active{transform:scale(0.92);}
+  .repeat-btn{
+    flex:0 0 auto; border:none; background:var(--card); color:var(--accent);
+    border:1.5px solid var(--accent);
+    width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .repeat-btn.on{background:var(--accent2); color:#fff; border-color:var(--accent2);}
+  .repeat-btn:active{transform:scale(0.92);}
+  .memo-btn{
+    flex:0 0 auto; border:1.5px solid #adb5bd; background:var(--card); color:#adb5bd;
+    width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1rem;
+  }
+  .memo-btn.memorized{background:#2ec4b6; color:#fff; border-color:#2ec4b6;}
+  .memo-btn:active{transform:scale(0.92);}
+  .sentence-card.memorized{opacity:.55;}
+  .record-btn{
+    flex:0 0 auto; border:none; background:#ff6b6b; color:#fff;
+    width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .record-btn.recording{background:#c1121f; animation:pulse 1s infinite;}
+  .record-btn:active{transform:scale(0.92);}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(193,18,31,.5);}
+    70%{box-shadow:0 0 0 8px rgba(193,18,31,0);}
+    100%{box-shadow:0 0 0 0 rgba(193,18,31,0);}
+  }
+  .score-badge{
+    flex:0 0 auto; font-size:.8rem; font-weight:700; padding:4px 8px;
+    border-radius:10px; white-space:nowrap; min-width:38px; text-align:center;
+  }
+  .score-badge.high{background:#d3f9d8; color:#2b8a3e;}
+  .score-badge.mid{background:#fff3bf; color:#e67700;}
+  .score-badge.low{background:#ffe3e3; color:#c92a2a;}
+  footer{text-align:center; color:var(--sub); font-size:.8rem; padding:24px 16px;}
+  @media (max-width:600px){
+    header{padding:14px 12px;}
+    header h1{font-size:1.05rem; margin-bottom:2px;}
+    header p{display:none;}
+    .profile-bar{margin-top:6px; font-size:.8rem; gap:6px;}
+    .profile-bar .avatar{font-size:1.1rem;}
+    .logout-btn{padding:2px 8px; font-size:.68rem;}
+    .controls{margin-top:8px; padding:0 10px; gap:6px;}
+    .top-fixed .controls:last-of-type{margin-bottom:8px;}
+    .toggle-btn{padding:6px 10px; font-size:.75rem;}
+    #stageSelect, #chapterSelect{
+      flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+      padding-bottom:4px; scrollbar-width:thin;
+    }
+    #stageSelect .chapter-btn, #chapterSelect .chapter-btn{
+      flex:0 0 auto; padding:5px 10px; font-size:.78rem;
+    }
+    main{padding:10px;}
+    .chapter-title{font-size:1rem; margin:16px 0 8px;}
+    .sentence-card{padding:10px 12px; gap:8px;}
+  }
+  @media (max-width:480px){
+    .en{font-size:.95rem;}
+    .ko{font-size:.85rem;}
+  }
+</style>
+</head>
+<body>
+
+<button id="themeToggle" class="theme-toggle" title="다크모드 전환">🌙</button>
+
+<div class="top-fixed">
+  <header>
+    <h1>슬기로운 초등영어 1800 통문장 외우기</h1>
+    <p>1단계 1화 ~ 30화 전체 문장 학습</p>
+    <div class="profile-bar" id="profileBar"></div>
+  </header>
+
+  <div class="controls">
+    <div class="toggle-group">
+      <button id="toggleKo" class="toggle-btn on">해석보기</button>
+      <button id="toggleUnmemorized" class="toggle-btn">미암기만 보기</button>
+    </div>
+    <div class="toggle-group">
+      <button id="installBtn" class="toggle-btn" style="display:none;">📲 앱 설치</button>
+      <a href="index.html" class="toggle-btn" style="text-decoration:none; display:inline-block;">학습법 소개</a>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="chapter-select" id="stageSelect"></div>
+  </div>
+
+  <div class="controls">
+    <div class="chapter-select" id="chapterSelect"></div>
+  </div>
+</div>
+
+<main id="main"></main>
+
+<footer>
+  듣기 버튼을 누르면 영어 문장을 음성으로 들을 수 있어요 (브라우저 내장 음성 합성 사용)
+  <div style="margin-top:8px;">
+    <a href="index.html" style="color:var(--accent); text-decoration:none; margin:0 8px;">학습법 소개</a>
+    <span style="color:var(--border);">|</span>
+    <a href="login.html" style="color:var(--accent); text-decoration:none; margin:0 8px;">캐릭터/닉네임 변경</a>
+    <span style="color:var(--border);">|</span>
+    <a href="privacy.html" style="color:var(--accent); text-decoration:none; margin:0 8px;">개인정보처리방침</a>
+  </div>
+  <div style="margin-top:6px; color:var(--sub); font-size:.78rem;">© 2026 슬기로운 초등영어 1800 통문장 외우기</div>
+</footer>
+
+<script src="stages_2_6.js"></script>
+<script>
+(function requireLogin(){
+  let profile = null;
+  try{ profile = JSON.parse(localStorage.getItem('user-profile')); }catch(e){}
+  if(!profile || !profile.nickname || !profile.avatar){
+    window.location.href = 'login.html';
+  }
+})();
+
+const stage1 = [
+{ch:1, sentences:[
+["Are you done?","다 끝냈니?"],["I'm done.","끝났어요."],
+["Are you okay?","괜찮니?"],["Yes, I'm okay.","네, 괜찮아요."],
+["Be careful.","조심해라."],["Okay.","알겠어요."],
+["Blow out the candles.","촛불을 꺼라."],["Yes, I will.","네, 그럴게요."],
+["Can you help me, please?","절 좀 도와주시겠어요?"],["Of course.","물론이지."],
+["Are you finished?","다 끝냈니?"],["Yes, I am.","네, 끝났어요."],
+["Are you ready?","준비됐니?"],["Yeah, I'm ready.","네, 준비됐어요."],
+["Be quiet.","조용히 해라."],["Breakfast is ready.","아침 식사 준비됐다."],
+["It looks yummy.","맛있어 보여요."],["Can you jump?","너 점프할 수 있니?"],
+["Yes, I can jump.","네, 전 점프할 수 있어요."]
+]},
+{ch:2, sentences:[
+["Can you speak up, please?","더 크게 말씀해 주시겠어요?"],["Okay.","알겠어요."],
+["Hey Lois, catch the ball.","루이스, 공 받아라."],["Hey, chin up.","야, 기운 내."],
+["Huh, I'm trying.","휴, 노력 중이야."],["Clean your room.","방 청소해라."],
+["Okay, Mom.","네, 엄마."],["Do you like the color?","이 색깔 마음에 드니?"],
+["Yes, I like it.","네, 마음에 들어요."],["Can you swim?","수영할 수 있니?"],
+["Yes, I can. I can swim.","네, 할 수 있어요. 전 수영할 수 있어요."],
+["Cheer up.","힘내라."],["I will.","그럴게요."],
+["Clap your hands three times.","박수를 세 번 치세요."],["One, two, three.","하나, 둘, 셋."],
+["Close your eyes.","눈을 감으렴."],["Why?","왜요?"],
+["Come in and sit down.","들어와서 앉으렴."]
+]},
+{ch:3, sentences:[
+["Come on honey, smile.","얘야, 이리 와서 웃어보렴."],["Cheese.","치즈 / 김치~."],
+["Come up here.","여기 위로 올라오렴."],["Just a moment.","잠깐만요."],
+["Did you flush?","물 내렸니?"],["Yes, I did.","네, 내렸어요."],
+["Did you wake up late?","늦게 일어났니?"],["Yeah, I did.","네, 늦게 일어났어요."],
+["Did you sleep well?","잘 잤니?"],["Yes, I did.","네, 잘 잤어요."],
+["Could you speak up, please?","더 크게 말씀해 주시겠어요?"],["Sorry, I will.","죄송해요, 그럴게요."],
+["Cover yourself with the blanket.","이불을 덮으렴."],["Okay.","알겠어요."],
+["Did you find page 10?","10페이지 찾았니?"],["Yes, I did.","네, 찾았어요."],
+["Did you have fun?","재미있었니?"],["Yes, so much.","네, 정말 재미있었어요."],
+["Dinner is ready.","저녁 식사 준비됐다."],["Yay, I'm so hungry.","와, 저 정말 배고파요."]
+]},
+{ch:4, sentences:[
+["Do as I say.","내가 말하는 대로 하렴."],["Sure, I will.","물론이죠, 그렇게 할게요."],
+["Do you have a card?","카드 있니?"],["Yes, I have.","네, 있어요."],
+["Do you need help?","도움이 필요하니?"],["Yes, give me toilet paper, please.","네, 화장지 좀 주세요."],
+["Do you understand?","이해했니?"],["Yes, sir.","네, 알겠습니다."],
+["Do you want some milk?","우유 좀 마실래?"],["No, thanks. I'm full.","아니요, 괜찮아요. 배불러요."],
+["Do what I'm doing.","내가 하는 대로 따라 해보렴."],["Like this?","이렇게요?"],
+["Do you like chicken?","치킨 좋아하니?"],["Yes, I like chicken.","네, 치킨 좋아해요."],
+["Do you need to go pee?","소변 마렵니?"],["Yeah, I need to pee.","네, 오줌 마려워요."],
+["Do you want any drinks?","음료수 마실래?"],["I'm fine. I have water.","괜찮아요. 물 있어요."],
+["Do you want some water?","물 좀 마실래?"],["Yes, I'm thirsty.","네, 목말라요."]
+]},
+{ch:5, sentences:[
+["Don't be scared.","무서워하지 마라."],["I'm not scared.","무섭지 않아요."],
+["Don't fight.","싸우지 마라."],["I'm sorry.","죄송해요."],
+["Don't jump.","뛰지 마라."],["Sorry, Mom.","죄송해요, 엄마."],
+["Don't run.","뛰지 마라."],["Okay, I'm sorry.","네, 죄송해요."],
+["Quiet in here.","여기선 조용히 하렴."],["Oh, I'm sorry.","아, 죄송해요."],
+["Do you want to draw?","그림 그리고 싶니?"],["Yes, I do.","네, 그러고 싶어요."],
+["Don't give up.","포기하지 마라."],["I won't give up.","포기하지 않을게요."],
+["Don't lie.","거짓말하지 마라."],["I'm telling the truth.","진실을 말하고 있어요."],
+["Don't splash water.","물 튀기지 마라."],["Yeah, I'm sorry about that.","네, 그 점은 죄송해요."],
+["Don't waste it.","낭비하지 마라."],["I'm not wasting anything.","아무것도 낭비하고 있지 않아요."]
+]},
+{ch:6, sentences:[
+["What are you drawing?","무엇을 그리고 있니?"],["I'm drawing a dinosaur.","공룡을 그리고 있어요."],
+["Enjoy your meal.","맛있게 먹으렴."],["Thank you, I will.","감사합니다, 잘 먹을게요."],
+["Excellent!","훌륭하구나!"],["Thank you, teacher.","선생님, 감사합니다."],
+["Fantastic!","환상적이구나!"],["Thanks, sir.","감사합니다, 선생님/아버님."],
+["Listen carefully.","잘 듣으렴."],["Yeah, I'm listening.","네, 듣고 있어요."],
+["Draw what I say.","내가 말하는 것을 그려보렴."],["Okay, say it.","네, 말씀하세요."],
+["Everyone, sing all together.","모두 다 함께 노래합시다."],["All right, let's sing.","좋아요, 노래해요."],
+["Face the board.","칠판을 보렴."],["Yeah. / Yep.","네."],
+["First, let's do some coloring.","먼저 색칠하기를 하자."],["Sure, I like to color.","좋아요, 전 색칠하는 걸 좋아해요."],
+["Get a partner.","짝을 지으렴."],["I got it.","짝을 구했어요. / 이해했어요."]
+]},
+{ch:7, sentences:[
+["Give me your bag.","네 가방을 주렴."],["My bag?","제 가방이요?"],
+["Go brush your teeth.","가서 양치질하렴."],["I don't want to.","하기 싫어요."],
+["Good job!","잘했구나!"],["Thanks, teacher.","선생님, 감사합니다."],
+["Good morning, everyone.","모두들 좋은 아침입니다."],["Good morning.","좋은 아침이에요."],
+["Goodbye, everyone.","모두들 안녕히 가세요/계세요."],["Goodbye.","안녕히 계세요."],
+["Go back to your seat.","자리로 돌아가렴."],["Yes, sir.","네, 알겠습니다."],
+["Good afternoon, boys and girls.","여러분, 좋은 오후입니다."],["Good afternoon, teacher.","선생님, 좋은 오후입니다."],
+["Good morning, class.","반 여러분, 좋은 아침입니다."],["Good morning.","좋은 아침이에요."],
+["Good night, my baby.","잘 자라, 우리 아가."],["I love you, Mom. Good night.","사랑해요 엄마, 잘 자요."],
+["Happy birthday!","생일 축하해!"],["Thank you.","감사합니다."]
+]},
+{ch:8, sentences:[
+["Okay, have a safe trip.","그래, 조심히 잘 다녀오렴."],["Thank you.","감사합니다."],
+["Have some cereal.","시리얼 좀 먹으렴."],["Okay, Mom.","네, 엄마."],
+["Have you lost your mind?","너 정신 나갔니? / 미쳤어?"],["No.","아니요."],
+["Help yourself.","마음껏 드세요 / 마음껏 먹으렴."],["Wow, it looks yummy.","와, 맛있어 보여요."],
+["Hold my hand.","내 손을 잡으렴."],["Thank you.","감사합니다."],
+["Have fun, honey.","재미있게 놀다 오렴, 얘야."],["I'll see you later, Mom.","엄마, 나중에 봬요."],
+["Have two more spoons.","두 숟가락만 더 먹으렴."],["I don't want to eat.","먹기 싫어요."],
+["Hello, everyone.","여러분, 안녕하세요."],["Hello.","안녕하세요."],
+["Hi, what's your name?","안녕, 이름이 뭐니?"],["I'm Peter.","난 피터야."],
+["Hold up your picture.","너의 그림을 위로 들어보렴."],["Here.","여기요."]
+]},
+{ch:9, sentences:[
+["How about this one?","이건 어때?"],["It's very nice.","그거 정말 좋네요."],
+["Pam, how are you today?","팸, 오늘 어떠니?"],["I'm good, and you?","좋아요, 당신은요?"],
+["Hmm, how does it taste?","흠, 맛이 어떠니?"],["It's delicious.","맛있어요."],
+["How old are you?","몇 살이니?"],["I'm seven years old.","일곱 살이에요."],
+["How is the weather?","날씨가 어떠니?"],["It's very hot.","매우 더워요."],
+["How are you doing?","어떻게 지내니?"],["I'm doing good.","잘 지내고 있어요."],
+["How are you, everyone?","여러분 안녕하세요/잘 지내시나요?"],["We are all fine, and you?","우리 모두 잘 지내요, 당신은요?"],
+["How is the weather?","날씨가 어떠니?"],["It's sunny today.","오늘 맑아요."],
+["How was school today?","오늘 학교 어땠니?"],["It was a lot of fun.","정말 재미있었어요."],
+["Hurry up.","서둘러라."],["I'm on my way.","가고 있는 중이에요."]
+]},
+{ch:10, sentences:[
+["I am here for you.","난 널 위해 여기 있어."],["I'm glad you're here.","네가 여기 있어서 기뻐."],
+["I can't live without you.","난 너 없이 살 수 없어."],["Me too.","나도 그래."],
+["I knew you could do it.","네가 해낼 줄 알았어."],["Ah, thank you.","아, 감사합니다."],
+["I love you. I'll love you forever.","사랑해. 영원히 사랑할게."],["I love you, too.","나도 사랑해."],
+["I'll pick you up after school.","학교 끝나고 데리러 갈게."],["Okay, see you.","네, 나중에 봐요."],
+["I believe in you.","난 널 믿어."],["Thank you for saying so.","그렇게 말해줘서 고마워."],
+["I don't like this.","난 이게 마음에 안 들어."],["But I like it.","하지만 전 마음에 들어요."],
+["I love you so much.","정말 많이 사랑해."],["I love you, too.","나도 사랑해."],
+["I'll call your names.","이름을 부르겠습니다."],["Okay.","네."],
+["I'm always on your side, son.","아들아, 난 항상 네 편이란다."],["I'm always on your side, too.","저도 항상 엄마/아빠 편이에요."]
+]},
+{ch:11, sentences:[
+["I'm proud of you.","네가 자랑스럽구나."],["Thank you so much.","정말 감사합니다."],
+["Is everyone here?","모두 다 왔나요?"],["Yes.","네."],
+["Everything clear?","다 이해했니? / 다 명확하니?"],["It's perfectly clear.","완벽히 이해했어요."],
+["Until now, is that clear?","지금까지는 확실히 이해가 되나요?"],["Yes, it's clear.","네, 확실해요."],
+["Is that yours?","그거 네 것이니?"],["Yes, it's mine.","네, 제 것이에요."],
+["I'm your English teacher.","나는 여러분의 영어 선생님입니다."],["Nice to meet you.","만나서 반가워요."],
+["Is everyone ready to start?","모두 시작할 준비가 되었나요?"],["Yes, we are.","네, 준비됐어요."],
+["Is it clear enough?","충분히 이해가 가니?"],["Yep, crystal clear.","네, 아주 명확해요."],
+["Is it cloudy?","날씨가 흐리니?"],["Well, it's raining.","글쎄요, 비가 오고 있어요."],
+["Is that your hat?","그거 네 모자니?"],["Yes, it is.","네, 맞아요."]
+]},
+{ch:12, sentences:[
+["Is this right?","이게 맞나요?"],["Yeah, it is.","네, 맞아요."],
+["Is this your card?","이게 네 카드니?"],["Nope, this is not mine.","아니요, 제 것이 아니에요."],
+["Pam, so noisy in here.","팸, 여기 너무 시끄럽다."],["I think so, too.","저도 그렇게 생각해요."],
+["It's time for bed.","잠잘 시간이다."],["I'm not sleepy yet.","아직 안 졸려요."],
+["Now, it's time to play.","이제 놀 시간이야."],["That sounds good.","좋은 생각이에요."],
+["Is this your bag?","이게 네 가방이니?"],["No, it's not mine.","아니요, 제 것이 아니에요."],
+["It's excellent!","아주 훌륭하구나!"],["Thank you.","감사합니다."],
+["It's on page 10.","10페이지에 있습니다."],["Give me a moment, please.","잠깐만 기다려 주세요."],
+["It's time to have a break.","휴식 시간이다."],["Yes, finally!","와, 드디어!"],
+["It's too dark in here.","여기 너무 어둡다."],["I'll turn on the light.","내가 불을 켤게요."]
+]},
+{ch:13, sentences:[
+["It's too hot in here.","여기 너무 덥다."],["I agree. It's super hot.","동감이에요. 엄청 덥네요."],
+["It's your turn.","네 차례야."],["Okay.","알겠어요."],
+["Come here, let me brush your hair.","이리 오렴, 머리 빗겨 줄게."],["Gently, Mom.","살살해 주세요, 엄마."],
+["Let me help you.","내가 도와줄게."],["Thanks.","고마워요."],
+["Let me give you a hug.","안아 줄게."],["Hug me.","안아 주세요."],
+["It's wonderful!","정말 멋지구나!"],["I think so, too.","저도 그렇게 생각해요."],
+["Leave her alone.","그녀를 그냥 내버려 두렴."],["Got it.","알겠어요."],
+["Let's chant line by line.","한 줄씩 찬트를 해봅시다."],["Okay, I'm ready.","네, 준비됐어요."],
+["Let's chant in two teams.","두 팀으로 나눠서 찬트를 해봅시다."],["How do we team up?","팀을 어떻게 나누나요?"],
+["Let's chant with motion.","율동과 함께 찬트를 해봅시다."]
+]},
+{ch:14, sentences:[
+["Let's just color.","우리 그냥 색칠하자."],["Sounds great.","좋은 생각이야."],
+["Rock, paper, scissors.","가위, 바위, 보."],["Okay, sure.","그래, 좋아."],
+["Okay, let's give it a try.","좋아, 한번 시도해 보자."],["Sure, let's go.","물론이지, 가자."],
+["Baby, let's go see the doctor.","얘야, 병원에 가자."],["I don't want to see a doctor.","병원에 가기 싫어요."],
+["Let's take a break.","우리 좀 쉬자."],["All right.","좋아요."],
+["Let's do our best.","우리 최선을 다하자."],["Sure, we can do this!","물론이지, 우린 할 수 있어!"],
+["Let's draw some pictures.","그림을 좀 그리자."],["I can draw.","저 그릴 수 있어요."],
+["Let's go get a basket.","바구니를 가지러 가자."],["I'll go get it.","제가 가서 가져올게요."],
+["Let's go to the bathroom.","화장실 가자."],["Okay, let's go.","네, 가요."],
+["Let's have a quiz.","퀴즈를 맞춰보자."],["Okay, what's the question?","좋아요, 문제가 뭐예요?"]
+]},
+{ch:15, sentences:[
+["Let me tell you something.","내가 뭐 하나 말해줄게."],["What is it?","그게 뭔데요?"],
+["I'll read it out loud.","큰 소리로 읽어볼게요."],["Sing along with me.","나를 따라 노래를 부르렴."],
+["Okay, let's sing together.","좋아요, 같이 노래해요."],["First, let's watch a safety video.","먼저 안전 비디오를 보자."],
+["Listen and repeat after me.","듣고 나를 따라 반복하렴."],["Okay, I will try.","네, 해볼게요."],
+["Let's play a game.","우리 게임 하자."],["Yay! I love to play games.","와! 전 게임 하는 거 정말 좋아해요."],
+["Let's see who is absent.","누가 결석했는지 보자."],["I think everyone is here.","모두 다 온 것 같아요."],
+["Let's wait here.","여기서 기다리자."],["How long will it take?","얼마나 걸릴까요?"],
+["Listen and color the picture.","듣고 그림에 색칠해 보렴."],["Okay, I'm ready.","네, 준비됐어요."],
+["Listen carefully, please.","잘 들어주세요."],["I'm listening.","듣고 있어요."]
+]},
+{ch:16, sentences:[
+["Listen to me.","내 말을 들어보렴."],["I am listening.","듣고 있어요."],
+["Look at me.","나를 보렴."],["Okay, I'm sorry.","네, 죄송해요."],
+["Richard, look at the board.","리처드, 칠판을 보렴."],["Yes, sir.","네, 선생님."],
+["Look at this.","이것 좀 보렴."],["What's this?","이게 뭐예요?"],
+["Open the window.","창문 좀 열어주렴."],["Listen to the song carefully.","노래를 주의 깊게 들어보렴."],
+["It's such a good song.","정말 좋은 노래네요."],["Look at page 10.","10페이지를 보렴."],
+["Yep. / Yeah.","네."],["Look at the picture.","그림을 보렴."],
+["May I help you?","도와드릴까요?"],["Yes, please.","네, 부탁해요."],
+["Next page, please.","다음 페이지로 넘겨주세요."],["Sure.","물론이죠."]
+]},
+{ch:17, sentences:[
+["Nice to meet you all.","여러분 모두 만나서 반가워요."],["Nice to meet you, too.","저희도 만나서 반가워요."],
+["Sing with me now.","이제 나와 함께 노래하자."],["Too loud!","너무 시끄럽다!"],
+["Okay, sorry.","네, 죄송해요."],["Okay, everybody. Let's get started.","자 여러분, 시작합시다."],
+["Let's do it.","해요 / 시작해요."],["One at a time, please.","한 번에 한 명씩 해주세요."],
+["Got it.","알겠어요."],["Now, turn to page 15.","이제 15페이지를 펴세요."],
+["Now, let's chant.","이제 찬트를 해봅시다."],["I like to chant.","전 찬트 하는 거 좋아해요."],
+["Okay, blow your nose.","자, 코를 풀렴."],["Okay, you've got it.","좋아, 알아들었구나 / 맞혔구나."],
+["Yep, I got it.","네, 알겠어요 / 맞혔어요."],["Open it.","그걸 열어보렴."],
+["Wow, it's a hairband!","와, 머리띠네요!"]
+]},
+{ch:18, sentences:[
+["Open the door.","문을 열어주렴."],["Ah, yes. What is it?","아, 네. 무슨 일이세요?"],
+["Everything's perfect.","모든 게 완벽하구나."],["Thanks, sir.","감사합니다, 선생님."],
+["Pick up your trash.","네 쓰레기를 주우렴."],["Please be careful.","조심해 주세요."],
+["Follow the pose.","포즈를 따라 해보렴."],["Like this?","이렇게요?"],
+["Open your sketchbook.","스케치북을 펴렴."],["I don't have a sketchbook.","전 스케치북이 없어요."],
+["Peter, is this your watch?","피터, 이거 네 시계니?"],["Yes, it is.","네, 맞아요."],
+["Pick up your toys.","장난감을 치우렴."],["I will.","그럴게요."],
+["Please be quiet.","조용히 해주세요."],["I'm sorry.","죄송해요."],
+["Hold tight.","꽉 잡으렴."],["Good to go.","갈 준비 됐어요. / 문제없어요."]
+]},
+{ch:19, sentences:[
+["Put on the gloves.","장갑을 끼렴."],["All right.","네, 알겠어요."],
+["You did a really great job.","너 정말 잘 해낸구나."],["Thanks, ma'am.","감사합니다, 선생님."],
+["Say goodbye to your friends.","친구들에게 인사하렴."],["Goodbye.","안녕."],
+["I'll see you later.","나중에 보자."],["See you later.","나중에 봐요."],
+["Sit here.","여기 앉으렴."],["What are you going to do?","무엇을 하실 건가요?"],
+["Put your head down.","고개를 숙이렴 / 엎드리렴."],["Like this?","이렇게요?"],
+["Rub everything off.","전부 문질러서 지우렴."],["But it's already clean.","하지만 이미 깨끗해요."],
+["Say hi to her.","그녀에게 인사하렴."],["Who is she?","그녀가 누구예요?"],
+["Sit down, please.","자리에 앉아 주세요."],["Yes, sir.","네, 알겠습니다."],
+["Sit still.","바르게/가만히 앉아 있으렴."],["I'm sorry.","죄송해요."]
+]},
+{ch:20, sentences:[
+["Sit up straight and say cheese.","똑바로 앉아서 치즈라고 해보렴."],["Cheese.","치즈~."],
+["This is for you, son.","아들아, 이건 네 선물이란다."],["What a surprise!","깜짝 놀랐어요!"],
+["Speak up.","크게 말하렴."],["Do you hear me now?","이제 제 말이 들리시나요?"],
+["Stay with me now.","이제 나와 함께 있으렴."],["Of course, I will stay with you.","물론이죠, 같이 있을게요."],
+["Stop crying.","울음 그치렴."],["Don't yell at me.","저한테 소리 지르지 마세요."],
+["Slow down.","천천히 하렴."],["Yeah, I see.","네, 알겠어요."],
+["Speak more loudly.","더 크게 말하렴."],["Sorry, I can't.","죄송해요, 그럴 수 없어요."],
+["Stand up.","일어나렴."],["Is it my turn?","제 차례인가요?"],
+["Step aside.","옆으로 비켜서렴."],["Yes, sure.","네, 물론이죠."],
+["Stop watching TV.","TV 그만 보렴."],["It's not done yet.","아직 안 끝났어요."]
+]},
+{ch:21, sentences:[
+["Stop.","멈춰라."],["Okay, I see.","네, 알겠어요."],
+["Take out your notebooks.","공책을 꺼내렴."],["Take your places.","너희들 자리에 앉으렴."],
+["That's almost right.","그건 거의 맞단다."],["Oh, is it?","아, 그래요?"],
+["That's much better.","그게 훨씬 낫구나."],["Yep, I think so, too.","네, 저도 그렇게 생각해요."],
+["Take it easy.","진정하렴 / 쉬엄쉬엄 하렴."],["Take out your crayons.","크레파스를 꺼내렴."],
+["I'm ready.","준비됐어요."],["Terrific!","아주 멋지구나!"],
+["Thanks, ma'am.","감사합니다, 선생님."],["That's it.","바로 그거야."],
+["Great.","좋아요 / 멋져요."],["That's right.","맞단다."],
+["Now we're talking.","이제야 말이 통하네."]
+]},
+{ch:22, sentences:[
+["Think again.","다시 한번 생각해 보렴."],["Take out your pencils, write this down.","연필을 꺼내서 이걸 받아 적으렴."],
+["I got it.","알겠어요 / 다 적었어요."],["Now, we're gonna try an exercise.","이제 연습 문제를 풀어볼 거예요."],
+["Cool, what is it?","멋지네요, 그게 뭔데요?"],["Try this one.","이것 한번 먹어보렴 / 입어보렴."],
+["It's really yummy.","이거 정말 맛있어요."],["Turn the light off.","불을 끄렴."],
+["But it's too dark.","하지만 너무 어두워요."],["This is for you.","이건 네 선물이야."],
+["Oh, I love this!","오, 이거 정말 마음에 들어요!"],["Try again.","다시 해보렴."],
+["I don't like this yellow dress.","전 이 노란 드레스 마음에 안 들어요."],["Turn back to page 14.","14페이지로 다시 돌아가렴."],
+["I found it.","찾았어요."],["Turn off the TV.","TV를 끄렴."]
+]},
+{ch:23, sentences:[
+["Turn on the lights.","불을 켜렴."],["Where is the switch?","스위치가 어디에 있나요?"],
+["Now, turn the page.","이제 페이지를 넘기렴."],["Mind your manners.","예의를 지키렴."],
+["I'm sorry.","죄송해요."],["Wait your turn.","네 차례를 기다리렴."],
+["When is my turn?","제 차례는 언제예요?"],["Do you want to keep playing?","계속 놀고 싶니?"],
+["Yes, of course.","네, 물론이죠."],["Turn the light off.","불을 끄렴."],
+["Use the towel.","수건을 쓰렴."],["I will.","그럴게요."],
+["Wait a minute.","잠깐만 기다려봐."],["What's up?","무슨 일이에요?"],
+["Wake up.","일어나렴."],["I want to sleep more.","더 자고 싶어요."],
+["Wash your face.","세수하렴."]
+]},
+{ch:24, sentences:[
+["Go wash your hands.","가서 손 씻으렴."],["I already did.","벌써 씻었어요."],
+["Watch out! You okay, honey?","조심해! 괜찮니, 얘야?"],["Yes, I'm okay.","네, 괜찮아요."],
+["We can do it again.","우린 다시 할 수 있단다."],["Okay, let's do it again.","좋아요, 다시 해요."],
+["You should wear gloves.","너 장갑을 껴야 해."],["All set.","준비 다 됐어요."],
+["What are you doing?","지금 뭐 하니?"],["I'm watching TV.","TV 보고 있어요."],
+["Watch out for cars.","차 조심하렴."],["Oh, thank you.","오, 감사합니다."],
+["We are on page 26 now.","우리는 이제 26페이지를 할 차례란다."],["What's on page 26?","26페이지에 무엇이 있나요?"],
+["Wear your clothes.","옷을 입으렴."],["Are we going out?","우리 밖에 나가나요?"],
+["We're almost done.","우리 거의 다 끝났단다."],["Glad to hear that.","그 말을 들으니 기쁘네요."],
+["What a cute baby you are!","너 정말 귀여운 아기구나!"],["I'm not a baby.","전 아기가 아니에요."]
+]},
+{ch:25, sentences:[
+["What color are they?","그것들은 무슨 색이니?"],["They are white.","그것들은 흰색이에요."],
+["Well, what color do you like?","글쎄, 넌 무슨 색을 좋아하니?"],["I like blue.","전 파란색을 좋아해요."],
+["What color is that?","그건 무슨 색이니?"],["Yellow.","노란색이요."],
+["What did you do yesterday?","어제 무엇을 했니?"],["I went to the zoo.","동물원에 갔었어요."],
+["What do you need?","무엇이 필요하니?"],["I need sketchbooks.","스케치북이 필요해요."],
+["What color is it?","그건 무슨 색이니?"],["It's purple.","보라색이에요."],
+["What color is this balloon?","이 풍선은 무슨 색이니?"],["It's red.","빨간색이에요."],
+["What day is it today?","오늘 무슨 요일이니?"],["It's Monday.","월요일이에요."],
+["What did you learn today?","오늘 무엇을 배웠니?"],["I learned how to draw.","그림 그리는 법을 배웠어요."],
+["What do you see?","무엇이 보이니?"],["I see clouds.","구름이 보여요."]
+]},
+{ch:26, sentences:[
+["What do you think?","너는 어떻게 생각하니? / 어때?"],["Awesome!","최고예요!"],
+["What do you want to do?","너 무엇을 하고 싶니?"],["Nothing.","아무것도 안 하고 싶어요."],
+["What is Daddy doing?","아빠는 무엇을 하고 계시니?"],["He is reading a newspaper.","신문을 읽고 계세요."],
+["What's this?","이게 뭐니?"],["It's our family picture.","우리 가족사진이에요."],
+["What is she like?","그녀는 어떤 사람인가요?"],["She's very kind.","그녀는 매우 친절해요."],
+["What do you want to eat?","무엇을 먹고 싶니?"],["I want sandwiches.","샌드위치 먹고 싶어요."],
+["What do you want?","무엇을 원하니?"],["Corn chips and cookies.","콘칩이랑 쿠키요."],
+["What is it?","그게 뭐니?"],["It's my new toy.","제 새 장난감이에요."],
+["What would you like?","무엇을 먹을래? / 무엇을 드릴까요?"],["I want spaghetti.","스파게티요."],
+["What's that?","저건 뭐니?"],["It's my socks.","제 양말이에요."]
+]},
+{ch:27, sentences:[
+["What's the weather like?","날씨가 어떠니?"],["It's raining.","비가 오고 있어요."],
+["What's your name?","이름이 뭐니?"],["My name is Wendy.","내 이름은 웬디야."],
+["Pencils down.","연필을 내려놓으렴."],["Just a moment.","잠깐만요."],
+["Where's your book?","네 책은 어디 있니?"],["It's under the desk.","책상 아래에 있어요."],
+["Where's your father?","아버지는 어디 계시니?"],["Upstairs.","위층에 계셔요."],
+["What's this?","이게 뭐니?"],["It's my English book.","제 영어 책이에요."],
+["When are you coming?","너 언제 오니?"],["I'm coming home soon.","곧 집에 가요."],
+["Where are you going?","어디 가니?"],["I'm going to the restroom.","화장실에 가고 있어요."],
+["Where do you want to go?","어디에 가고 싶니?"],["Let's go to the zoo.","동물원에 가요."],
+["Where is your ruler?","네 자는 어디 있니?"],["It's in my pencil case.","제 필통 안에 있어요."]
+]},
+{ch:28, sentences:[
+["Which one do you want?","어떤 것을 원하니?"],["This pink one.","이 분홍색 것이요."],
+["Who's next?","다음은 누구 차례니?"],["It's Hermione's turn.","헤르미온느 차례예요."],
+["Who is this person?","이 사람은 누구니?"],["It's my grandmother.","제 할머니예요."],
+["Who wants to go first?","누가 먼저 하고 싶니?"],["Me!","저요!"],
+["Let's try it again.","다시 한번 해보자."],["Who do you see in the picture?","사진 속에 누가 보이니?"],
+["My friend, Jenny.","제 친구 제니요."],["Who is he?","그는 누구니?"],
+["He is my friend, Bill.","그는 제 친구 빌이에요."],["Who sent this?","이것을 누가 보냈니?"],
+["This is from Daddy.","아빠가 보내신 거예요."],["Who's not here today?","오늘 결석자가 누구니?"],
+["Amy is not here today.","에이미가 오늘 안 왔어요."],["Work in pairs.","둘씩 짝을 지어 활동하렴."],
+["I got it.","알겠어요 / 짝을 구했어요."]
+]},
+{ch:29, sentences:[
+["Let's work together out there.","저기서 함께 협력하자."],["Sounds great, let's go there.","좋은 생각이에요, 저기로 가요."],
+["You pick up your toys, please.","네 장난감 좀 치워주겠니."],["Yes, I will.","네, 그럴게요."],
+["You are the best!","네가 최고야!"],["Thanks, you too.","고마워요, 당신도요."],
+["You can do it.","넌 할 수 있어."],["You did well.","너 잘 해냈구나."],
+["Thank you for your help.","도와주셔서 감사합니다."],["Would you like to come up?","발표하러 나와볼래?"],
+["Yes, I like.","네, 좋아요."],["Write it out.","그것을 받아 적으렴."],
+["Copy.","따라 쓰기요."],["You are the apple of my eye.","너는 내 눈에 넣어도 아프지 않을 소중한 존재란다."],
+["You too, Mommy.","엄마도요."],["You did a great job.","너 정말 잘 해냈구나."],
+["You have to pick up your toys.","너 장난감을 치워야 한단다."],["I'll pick up my toys.","제 장난감 치울게요."]
+]},
+{ch:30, sentences:[
+["You make me so happy.","넌 날 참 행복하게 만들어주는구나."],["Really?","정말이요?"],
+["You need to focus.","집중해야 한단다."],["I want to, but I'm too tired.","그러고 싶지만, 너무 피곤해요."],
+["You don't need to say sorry to me.","나한테 미안하다고 말할 필요 없단다."],["Don't get too close, boys.","얘들아, 너무 가까이 가지 마라."],
+["Isn't it yummy?","맛있지 않니?"],["Ew, it's so yucky!","으, 너무 맛없어요!"],
+["You need to act politely.","공손하게 행동해야 한단다."],["What did I do wrong?","제가 무엇을 잘못했나요?"],
+["You need to go to the bathroom first.","먼저 화장실부터 다녀와야 한단다."],["Where is it?","화장실이 어디에 있나요?"],
+["You shouldn't scream.","소리치면 안 된단다."],["Sorry, I'll keep it down.","죄송해요, 조용히 할게요."],
+["Yucky.","맛없어."],["Um, it's not bad.","음, 나쁘지 않아요."],
+["Yummy.","맛있어."],["Yes, it's super yummy.","네, 엄청 맛있어요."]
+]}
+];
+
+const stages = {1: stage1, 2: stage2, 3: stage3, 4: stage4, 5: stage5, 6: stage6};
+
+const stageSelect = document.getElementById('stageSelect');
+const chapterSelect = document.getElementById('chapterSelect');
+const mainEl = document.getElementById('main');
+const toggleKoBtn = document.getElementById('toggleKo');
+const toggleUnmemorizedBtn = document.getElementById('toggleUnmemorized');
+
+let koHidden = false;
+let showOnlyUnmemorized = false;
+let currentStage = 1;
+let currentChapter = 1;
+
+const MEMO_KEY = 'memorized-sentences';
+let memorized = {};
+try{ memorized = JSON.parse(localStorage.getItem(MEMO_KEY)) || {}; }catch(e){ memorized = {}; }
+
+function memoId(stage, ch, idx){ return stage + '-' + ch + '-' + idx; }
+function isMemorized(stage, ch, idx){ return !!memorized[memoId(stage, ch, idx)]; }
+function setMemorized(stage, ch, idx, val){
+  const id = memoId(stage, ch, idx);
+  if(val) memorized[id] = true; else delete memorized[id];
+  localStorage.setItem(MEMO_KEY, JSON.stringify(memorized));
+}
+
+function buildStageButtons(){
+  stageSelect.innerHTML = '';
+  Object.keys(stages).map(Number).sort((a,b)=>a-b).forEach(stageNum=>{
+    const btn = document.createElement('button');
+    btn.className = 'chapter-btn' + (stageNum===currentStage ? ' active':'');
+    btn.textContent = stageNum + '단계';
+    btn.onclick = ()=>{
+      currentStage = stageNum;
+      currentChapter = stages[currentStage][0].ch;
+      buildStageButtons();
+      buildChapterButtons();
+      render();
+    };
+    stageSelect.appendChild(btn);
+  });
+}
+
+function buildChapterButtons(){
+  chapterSelect.innerHTML = '';
+  stages[currentStage].forEach(c=>{
+    const btn = document.createElement('button');
+    btn.className = 'chapter-btn' + (c.ch===currentChapter ? ' active':'');
+    btn.textContent = c.ch + '화';
+    btn.onclick = ()=>{
+      currentChapter = c.ch;
+      render();
+    };
+    chapterSelect.appendChild(btn);
+  });
+}
+
+let repeatTimer = null;
+let activeRepeatBtn = null;
+
+function stopRepeat(){
+  if(repeatTimer){ clearTimeout(repeatTimer); repeatTimer = null; }
+  if(activeRepeatBtn){ activeRepeatBtn.classList.remove('on'); activeRepeatBtn = null; }
+  window.speechSynthesis.cancel();
+}
+
+function speak(text, onend){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.95;
+  if(onend) u.onend = onend;
+  window.speechSynthesis.speak(u);
+}
+
+function toggleRepeat(text, btn){
+  if(activeRepeatBtn === btn){
+    stopRepeat();
+    return;
+  }
+  stopRepeat();
+  activeRepeatBtn = btn;
+  btn.classList.add('on');
+  const loop = ()=>{
+    if(activeRepeatBtn !== btn) return;
+    speak(text, ()=>{
+      if(activeRepeatBtn !== btn) return;
+      repeatTimer = setTimeout(loop, 800);
+    });
+  };
+  loop();
+}
+
+const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+let activeRecordBtn = null;
+let activeRecognition = null;
+
+function normalizeText(t){
+  return t.toLowerCase().replace(/[^a-z0-9' ]/g,'').replace(/\s+/g,' ').trim();
+}
+
+function levenshtein(a, b){
+  const m = a.length, n = b.length;
+  const dp = Array.from({length:m+1}, ()=> new Array(n+1).fill(0));
+  for(let i=0;i<=m;i++) dp[i][0] = i;
+  for(let j=0;j<=n;j++) dp[0][j] = j;
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      if(a[i-1]===b[j-1]) dp[i][j] = dp[i-1][j-1];
+      else dp[i][j] = 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+    }
+  }
+  return dp[m][n];
+}
+
+function scoreSentence(target, heard){
+  const t = normalizeText(target);
+  const h = normalizeText(heard);
+  if(!h) return 0;
+  const dist = levenshtein(t, h);
+  const maxLen = Math.max(t.length, h.length, 1);
+  const score = Math.round((1 - dist/maxLen) * 100);
+  return Math.max(0, Math.min(100, score));
+}
+
+function setScoreBadge(badge, score){
+  badge.textContent = score + '%';
+  badge.classList.remove('high','mid','low');
+  badge.classList.add(score >= 80 ? 'high' : score >= 50 ? 'mid' : 'low');
+  badge.style.display = 'inline-block';
+}
+
+function stopRecording(){
+  if(activeRecognition){
+    try{ activeRecognition.stop(); }catch(e){}
+  }
+  if(activeRecordBtn){ activeRecordBtn.classList.remove('recording'); activeRecordBtn = null; }
+  activeRecognition = null;
+}
+
+function toggleRecording(en, btn, badge){
+  if(!SpeechRecognitionAPI){
+    alert('이 브라우저는 음성 인식을 지원하지 않습니다. 크롬 브라우저를 사용해 주세요.');
+    return;
+  }
+  if(activeRecordBtn === btn){
+    stopRecording();
+    return;
+  }
+  stopRecording();
+  stopRepeat();
+  window.speechSynthesis.cancel();
+
+  const recognition = new SpeechRecognitionAPI();
+  recognition.lang = 'en-US';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  activeRecognition = recognition;
+  activeRecordBtn = btn;
+  btn.classList.add('recording');
+  badge.style.display = 'none';
+
+  recognition.onresult = (e)=>{
+    const heard = e.results[0][0].transcript;
+    const score = scoreSentence(en, heard);
+    setScoreBadge(badge, score);
+  };
+  recognition.onerror = ()=>{
+    badge.textContent = '오류';
+    badge.classList.remove('high','mid','low');
+    badge.classList.add('low');
+    badge.style.display = 'inline-block';
+  };
+  recognition.onend = ()=>{
+    btn.classList.remove('recording');
+    if(activeRecordBtn === btn){ activeRecordBtn = null; activeRecognition = null; }
+  };
+
+  recognition.start();
+}
+
+let chapterPlaybackActive = false;
+let chapterPlaybackToken = 0;
+
+function stopChapterPlayback(btn){
+  chapterPlaybackActive = false;
+  window.speechSynthesis.cancel();
+  if(btn){
+    btn.classList.remove('on');
+    btn.textContent = '🔂 문장당 10회 듣기';
+  }
+}
+
+function playChapterTenTimes(chapterObj, btn){
+  if(chapterPlaybackActive){
+    stopChapterPlayback(btn);
+    return;
+  }
+  stopRepeat();
+  stopRecording();
+  chapterPlaybackActive = true;
+  const myToken = ++chapterPlaybackToken;
+  btn.classList.add('on');
+  btn.textContent = '⏹ 중지';
+
+  const sentences = chapterObj.sentences;
+  let i = 0, count = 0;
+
+  function playNext(){
+    if(myToken !== chapterPlaybackToken || !chapterPlaybackActive) return;
+    if(i >= sentences.length){
+      stopChapterPlayback(btn);
+      return;
+    }
+    const [en] = sentences[i];
+    speak(en, ()=>{
+      if(myToken !== chapterPlaybackToken || !chapterPlaybackActive) return;
+      count++;
+      if(count >= 10){
+        count = 0;
+        i++;
+      }
+      setTimeout(playNext, 500);
+    });
+  }
+  playNext();
+}
+
+const ICON_SPEAK = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 010 7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M19 6a8 8 0 010 12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" opacity=".7"/></svg>';
+const ICON_REPEAT = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>';
+const ICON_MIC = '<svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 14a3 3 0 003-3V6a3 3 0 10-6 0v5a3 3 0 003 3z"/><path d="M19 11a1 1 0 10-2 0 5 5 0 01-10 0 1 1 0 10-2 0 7 7 0 006 6.92V20H9a1 1 0 100 2h6a1 1 0 100-2h-2v-2.08A7 7 0 0019 11z"/></svg>';
+
+function renderChapter(c, stageNum){
+  const title = document.createElement('div');
+  title.className = 'chapter-title';
+
+  const titleText = document.createElement('span');
+  titleText.className = 'title-text';
+  titleText.textContent = '🔹 ' + stageNum + '단계 ' + c.ch + '화';
+  title.appendChild(titleText);
+
+  const chapterRepeatBtn = document.createElement('button');
+  chapterRepeatBtn.className = 'chapter-repeat-btn';
+  chapterRepeatBtn.textContent = '🔂 문장당 10회 듣기';
+  chapterRepeatBtn.onclick = ()=> playChapterTenTimes(c, chapterRepeatBtn);
+  title.appendChild(chapterRepeatBtn);
+
+  mainEl.appendChild(title);
+
+  c.sentences.forEach((s, idx)=>{
+    const [en, ko] = s;
+    const memo = isMemorized(stageNum, c.ch, idx);
+    if(showOnlyUnmemorized && memo) return;
+
+    const card = document.createElement('div');
+    card.className = 'sentence-card' + (memo ? ' memorized':'');
+
+    const num = document.createElement('div');
+    num.className = 'sentence-num';
+    num.textContent = (idx+1);
+
+    const body = document.createElement('div');
+    body.className = 'sentence-body';
+    const enDiv = document.createElement('div');
+    enDiv.className = 'en';
+    enDiv.textContent = en;
+    const koDiv = document.createElement('div');
+    koDiv.className = 'ko' + (koHidden ? ' hidden':'');
+    koDiv.textContent = ko;
+    koDiv.onclick = ()=> koDiv.classList.toggle('hidden');
+    body.appendChild(enDiv);
+    body.appendChild(koDiv);
+
+    const btnGroup = document.createElement('div');
+    btnGroup.className = 'btn-group';
+
+    const speakBtn = document.createElement('button');
+    speakBtn.className = 'speak-btn';
+    speakBtn.innerHTML = ICON_SPEAK;
+    speakBtn.onclick = ()=>{ stopRepeat(); speak(en); };
+
+    const repeatBtn = document.createElement('button');
+    repeatBtn.className = 'repeat-btn';
+    repeatBtn.innerHTML = ICON_REPEAT;
+    repeatBtn.onclick = ()=> toggleRepeat(en, repeatBtn);
+
+    const memoBtn = document.createElement('button');
+    memoBtn.className = 'memo-btn' + (memo ? ' memorized':'');
+    memoBtn.textContent = memo ? '✅' : '⬜';
+    memoBtn.title = '암기 여부 체크';
+    memoBtn.onclick = ()=>{
+      const newVal = !isMemorized(stageNum, c.ch, idx);
+      setMemorized(stageNum, c.ch, idx, newVal);
+      if(showOnlyUnmemorized && newVal){
+        render();
+      } else {
+        card.classList.toggle('memorized', newVal);
+        memoBtn.classList.toggle('memorized', newVal);
+        memoBtn.textContent = newVal ? '✅' : '⬜';
+      }
+    };
+
+    const recordBtn = document.createElement('button');
+    recordBtn.className = 'record-btn';
+    recordBtn.innerHTML = ICON_MIC;
+    recordBtn.title = '발음 녹음 및 평가';
+
+    const scoreBadge = document.createElement('div');
+    scoreBadge.className = 'score-badge';
+    scoreBadge.style.display = 'none';
+
+    recordBtn.onclick = ()=> toggleRecording(en, recordBtn, scoreBadge);
+
+    btnGroup.appendChild(speakBtn);
+    btnGroup.appendChild(repeatBtn);
+    btnGroup.appendChild(recordBtn);
+    btnGroup.appendChild(scoreBadge);
+
+    card.appendChild(memoBtn);
+    card.appendChild(num);
+    card.appendChild(body);
+    card.appendChild(btnGroup);
+    mainEl.appendChild(card);
+  });
+}
+
+function render(){
+  mainEl.innerHTML = '';
+  const chapters = stages[currentStage];
+  Array.from(chapterSelect.children).forEach((b,i)=>{
+    b.classList.toggle('active', chapters[i].ch === currentChapter);
+  });
+
+  const c = chapters.find(d=>d.ch===currentChapter);
+  renderChapter(c, currentStage);
+}
+
+toggleKoBtn.onclick = ()=>{
+  koHidden = !koHidden;
+  toggleKoBtn.classList.toggle('on', !koHidden);
+  toggleKoBtn.textContent = '해석보기';
+  document.querySelectorAll('.ko').forEach(el=> el.classList.toggle('hidden', koHidden));
+};
+
+toggleUnmemorizedBtn.onclick = ()=>{
+  showOnlyUnmemorized = !showOnlyUnmemorized;
+  toggleUnmemorizedBtn.classList.toggle('on', showOnlyUnmemorized);
+  toggleUnmemorizedBtn.textContent = '미암기만 보기';
+  render();
+};
+
+function renderProfile(){
+  const profileBar = document.getElementById('profileBar');
+  let profile = null;
+  try{ profile = JSON.parse(localStorage.getItem('user-profile')); }catch(e){}
+  if(!profile) return;
+  profileBar.innerHTML = '';
+  const avatar = document.createElement('span');
+  avatar.className = 'avatar';
+  avatar.textContent = profile.avatar;
+  const name = document.createElement('span');
+  name.textContent = profile.nickname + '님, 환영해요!';
+  const logoutBtn = document.createElement('button');
+  logoutBtn.className = 'logout-btn';
+  logoutBtn.textContent = '캐릭터/닉네임 변경';
+  logoutBtn.onclick = ()=>{ window.location.href = 'login.html'; };
+  profileBar.appendChild(avatar);
+  profileBar.appendChild(name);
+  profileBar.appendChild(logoutBtn);
+}
+
+renderProfile();
+buildStageButtons();
+buildChapterButtons();
+render();
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
+
+let deferredInstallPrompt = null;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  installBtn.style.display = 'inline-block';
+});
+
+installBtn.onclick = async ()=>{
+  if(!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt = null;
+  installBtn.style.display = 'none';
+};
+
+window.addEventListener('appinstalled', ()=>{
+  installBtn.style.display = 'none';
+  deferredInstallPrompt = null;
+});
+
+const themeToggle = document.getElementById('themeToggle');
+function updateThemeIcon(){
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  themeToggle.textContent = isDark ? '☀️' : '🌙';
+}
+themeToggle.onclick = ()=>{
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const next = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try{ localStorage.setItem('theme', next); }catch(e){}
+  updateThemeIcon();
+};
+updateThemeIcon();
+</script>
+</body>
+</html>
