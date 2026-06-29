@@ -194,7 +194,7 @@
     </div>
   </div>
   <div id="togglePool" style="display:none;">
-    <button id="toggleKo" class="toggle-btn on">해석보기</button>
+    <button id="toggleKo" class="toggle-btn">해석보기</button>
     <button id="toggleUnmemorized" class="toggle-btn">미암기만 보기</button>
   </div>
 
@@ -592,7 +592,7 @@ const mainEl = document.getElementById('main');
 const toggleKoBtn = document.getElementById('toggleKo');
 const toggleUnmemorizedBtn = document.getElementById('toggleUnmemorized');
 
-let koHidden = false;
+let koHidden = true;
 let showOnlyUnmemorized = false;
 let currentStage = 1;
 let currentChapter = 1;
