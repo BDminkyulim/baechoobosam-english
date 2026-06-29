@@ -93,6 +93,9 @@
     white-space:nowrap;
   }
   .chapter-repeat-btn.on{background:#c1121f; color:#fff; border-color:#c1121f;}
+  .chapter-title .toggle-btn{
+    padding:5px 10px; font-size:.78rem; border-radius:16px;
+  }
   .sentence-card{
     background:var(--card); border:1px solid var(--border); border-radius:12px;
     padding:14px 16px; margin-bottom:10px; display:flex; align-items:center; gap:12px;
@@ -186,13 +189,13 @@
 
   <div class="controls">
     <div class="toggle-group">
-      <button id="toggleKo" class="toggle-btn on">해석보기</button>
-      <button id="toggleUnmemorized" class="toggle-btn">미암기만 보기</button>
-    </div>
-    <div class="toggle-group">
       <button id="installBtn" class="toggle-btn" style="display:none;">📲 앱 설치</button>
       <a href="index.html" class="toggle-btn" style="text-decoration:none; display:inline-block;">학습법 소개</a>
     </div>
+  </div>
+  <div id="togglePool" style="display:none;">
+    <button id="toggleKo" class="toggle-btn on">해석보기</button>
+    <button id="toggleUnmemorized" class="toggle-btn">미암기만 보기</button>
   </div>
 
   <div class="controls">
@@ -823,11 +826,18 @@ function renderChapter(c, stageNum){
   titleText.textContent = '🔹 ' + stageNum + '단계 ' + c.ch + '화';
   title.appendChild(titleText);
 
+  const titleBtnGroup = document.createElement('div');
+  titleBtnGroup.style.cssText = 'display:flex; gap:6px; align-items:center; flex-shrink:0;';
+  titleBtnGroup.appendChild(toggleKoBtn);
+  titleBtnGroup.appendChild(toggleUnmemorizedBtn);
+
   const chapterRepeatBtn = document.createElement('button');
   chapterRepeatBtn.className = 'chapter-repeat-btn';
   chapterRepeatBtn.textContent = '🔂 문장당 10회 듣기';
   chapterRepeatBtn.onclick = ()=> playChapterTenTimes(c, chapterRepeatBtn);
-  title.appendChild(chapterRepeatBtn);
+  titleBtnGroup.appendChild(chapterRepeatBtn);
+
+  title.appendChild(titleBtnGroup);
 
   mainEl.appendChild(title);
 
@@ -909,6 +919,9 @@ function renderChapter(c, stageNum){
 }
 
 function render(){
+  const pool = document.getElementById('togglePool');
+  pool.appendChild(toggleKoBtn);
+  pool.appendChild(toggleUnmemorizedBtn);
   mainEl.innerHTML = '';
   const chapters = stages[currentStage];
   Array.from(chapterSelect.children).forEach((b,i)=>{
