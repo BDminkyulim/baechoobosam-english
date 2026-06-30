@@ -1,12 +1,12 @@
 {
-  "name": "슬기로운 초등영어 1800 통문장 외우기",
-  "short_name": "초등영어1800",
-  "description": "초등 필수 1,800 통문장을 듣고 따라하고 암기 체크하는 학습 앱",
+  "name": "잉핏 EngFit - 1800 통문장 학습",
+  "short_name": "잉핏 EngFit",
+  "description": "초등 필수 1,800 통문장을 듣고 따라하고 암기 체크하는 영어 학습 앱",
   "start_url": "./learn.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f5f7fb",
-  "theme_color": "#4361ee",
+  "background_color": "#F0F4F8",
+  "theme_color": "#1565C0",
   "orientation": "portrait-primary",
   "icons": [
     { "src": "icon.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any" },

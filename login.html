@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>로그인 - 슬기로운 초등영어 1800 통문장 외우기</title>
-<meta name="description" content="동물 캐릭터와 닉네임을 설정하고 초등영어 1,800 통문장 학습을 시작하세요.">
+<title>캐릭터 설정 - 잉핏 EngFit</title>
+<meta name="description" content="십이간지 캐릭터와 닉네임을 설정하고 잉핏(EngFit) 1,800 통문장 학습을 시작하세요.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <meta name="google-adsense-account" content="ca-pub-3819932954579285">
@@ -20,17 +20,17 @@
 </script>
 <style>
   :root{
-    --bg:#f5f7fb; --card:#ffffff; --accent:#4361ee; --accent2:#3a0ca3;
-    --text:#1b1b2f; --sub:#6c757d; --border:#e3e6ee;
+    --bg:#F0F4F8; --card:#ffffff; --accent:#1565C0; --accent2:#2E7D32;
+    --text:#1E293B; --sub:#607D8B; --border:#CBD5E1;
   }
   :root[data-theme="dark"]{
-    --bg:#14161f; --card:#1f2230; --accent:#6c8cff; --accent2:#9d7bff;
-    --text:#eef0f7; --sub:#a3a8bd; --border:#343750;
+    --bg:#0F172A; --card:#1E293B; --accent:#60A5FA; --accent2:#4ADE80;
+    --text:#E2E8F0; --sub:#94A3B8; --border:#334155;
   }
   *{box-sizing:border-box;}
   body{
     margin:0; min-height:100vh; font-family:"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    background:linear-gradient(150deg,var(--accent) 0%,#0D47A1 50%,var(--accent2) 100%);
     display:flex; align-items:center; justify-content:center; padding:16px;
     transition:background-color .2s, color .2s;
   }
@@ -60,8 +60,8 @@
   }
   .animal-btn:hover{transform:translateY(-2px);}
   .animal-btn.selected{
-    border-color:var(--accent); background:#eef1ff;
-    box-shadow:0 0 0 3px rgba(67,97,238,.25);
+    border-color:var(--accent); background:#E3F2FD;
+    box-shadow:0 0 0 3px rgba(21,101,192,.25);
   }
   input[type="text"]{
     width:100%; padding:12px 14px; border:2px solid var(--border); border-radius:12px;
@@ -88,8 +88,12 @@
 <button id="themeToggle" class="theme-toggle" title="다크모드 전환">🌙</button>
 
 <div class="login-card">
-  <h1>📋 초등영어 1,800 통문장</h1>
-  <p class="sub">캐릭터와 닉네임을 설정하고 학습을 시작해요!</p>
+  <div style="text-align:center; margin-bottom:14px;">
+    <span style="font-size:1.5rem; font-weight:900; color:var(--accent);">잉핏</span>
+    <span style="font-size:1rem; font-weight:700; color:var(--accent2); margin-left:6px;">EngFit</span>
+  </div>
+  <h1 style="color:var(--accent);">1,800 통문장 학습</h1>
+  <p class="sub">나만의 캐릭터와 닉네임을 설정하고 시작해요!</p>
 
   <label>나의 십이간지 동물을 골라주세요</label>
   <div class="animal-grid" id="animalGrid"></div>
